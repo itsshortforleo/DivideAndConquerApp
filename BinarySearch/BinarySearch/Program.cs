@@ -6,9 +6,9 @@ namespace BinarySearch
 {
     class Program
     {
-        private int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        private int[] array = {1, 2, 2, 4, 5, 6, 7, 8, 9, 10, 11};
         private int lowIndex = 0;
-        private int highIndex = 4;
+        private int highIndex = 10;
         private int x;
 
         static void Main(string[] args)
@@ -21,8 +21,13 @@ namespace BinarySearch
             Program bs = new Program();
             bs.x = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
-            Console.WriteLine("Binary Search returns: {0}", bs.BinarySearch(bs.lowIndex, bs.highIndex));
 
+            // Regular binary search:
+            //Console.WriteLine("Binary Search returns: {0}", bs.BinarySearch(bs.lowIndex, bs.highIndex));
+
+            // SampleQuestionNumber1:
+            Console.WriteLine("Binary Search returns: {0}", bs.SampleQuestionNumber1(bs.lowIndex, bs.highIndex));
+            
             Console.ReadKey();
 
         }
@@ -36,7 +41,7 @@ namespace BinarySearch
             }
             else
             {
-                int mid = (int)Floor(Convert.ToDouble(((low + high) / 2)));
+                int mid = (int)Floor(Convert.ToDouble((low + high) / 2));
                 if (x == mid)
                 {
                     return true;
@@ -48,5 +53,36 @@ namespace BinarySearch
                 else return BinarySearch(mid + 1, high);
             }
         }
+
+        /// <summary>
+        /// Let A[1..n] be a sorted array of distinct integers. 
+        /// Design an efficient divide and conquer algorithm to determine 
+        /// if there exists an index i such that A[i]=i.
+        /// </summary>
+        public bool SampleQuestionNumber1(int low, int high)
+        {
+            if (low > high)
+            {
+                return false;
+            }
+            else
+            {
+                int mid = (int)Floor(Convert.ToDouble((low + high) / 2));
+                if (x == array[x])
+                {
+                    return true;
+                }
+                else if (x < array[mid])
+                {
+                    return SampleQuestionNumber1(low, mid - 1);
+                }
+                else
+                {
+                    return SampleQuestionNumber1(mid + 1, high);
+                }
+            }
+        }
+
+
     }
 }
