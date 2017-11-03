@@ -14,7 +14,7 @@ namespace BinarySearch
         static void Main(string[] args)
         {
             //Console.WriteLine("Hello World!");
-           
+
 
 
             Console.WriteLine("Enter number to binary search: ");
@@ -27,11 +27,23 @@ namespace BinarySearch
 
             // SampleQuestionNumber1:
             Console.WriteLine("Binary Search returns: {0}", bs.SampleQuestionNumber1(bs.lowIndex, bs.highIndex));
-            
+
             Console.ReadKey();
 
         }
 
+
+        //public static void Main(string[] args)
+        //{
+        //    int i = 0;
+        //    int[] myArray = new int[2];
+
+        //    Console.WriteLine("my array is {0}", myArray[i++] = i--);
+
+
+
+        //    Console.ReadKey();
+        //}
 
         public bool BinarySearch(int low, int high)
         {
